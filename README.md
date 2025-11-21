@@ -39,7 +39,7 @@ To eliminate negative weights without changing the true shortest path structure,
 
 ### Phase 2: A* Search on Reduced Costs
 
-The original edge cost $w(u, v)$ is replaced by a non-negative **reduced cost**$w'(u, v)$:
+The original edge cost $w(u, v)$ is replaced by a non-negative **reduced cost** $w'(u, v)$:
 
 $$
 w'(u, v) = w(u, v) + p(u) - p(v) \ge 0
@@ -73,7 +73,12 @@ This method reduces the complexity from a factor of $V^2$ shortest path searches
 
 The results from the A* runs were validated against the **Bellman-Ford APSP** results (which serve as the ground truth).
 
+A comparison can be found in the comparison.ipynb.
 
 ## Use of LLM
 
 LLMs were used for utility functions outside the scope of the course like plotting graphs, understanding better new libraries, generating useful comments in key parts of the code and to improve the README.
+
+## Final note
+
+Due to time constraints the algorithm was cut short and for the A* algorithm I couldn't finish the last 5 runs, while the Bellman Ford algorithm was cut at 160/224 runs.
