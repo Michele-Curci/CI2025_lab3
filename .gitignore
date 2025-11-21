@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+a_star_experiment_results.jsonl
+bellman_ford_results.jsonl
+comparison_metrics.jsonl
