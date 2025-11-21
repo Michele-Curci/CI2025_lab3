@@ -8,7 +8,7 @@ This project investigates efficient solutions for the **All-Pairs Shortest Path 
 
 ## Initial Approach: The Basic A* Limitation
 
-The standard **A* Search Algorithm** is known for its efficiency in finding the single-source shortest path by using an informed heuristic, $h(n)$, to guide the search.
+The standard **A*** Search Algorithm is known for its efficiency in finding the single-source shortest path by using an informed heuristic, $h(n)$, to guide the search.
 
 The evaluation function is defined as:
 
@@ -26,7 +26,7 @@ This necessitated an advanced approach capable of handling negative weights whil
 
 ## Advanced Approach: Reduced Cost A* with Potential Functions
 
-To maintain the correctness of A* on graphs with negative weights (but  **no negative cycles** ), we employed the **Reduced Cost A* Algorithm** (a technique borrowed from Johnson's Algorithm).
+To maintain the correctness of A* on graphs with negative weights (but  **no negative cycles** ), we employed the **Reduced Cost A*** Algorithm (a technique borrowed from Johnson's Algorithm).
 
 The solution involves a two-phase process:
 
@@ -51,7 +51,9 @@ This approach ensures the A* results are **optimal** (matching Bellman-Ford) for
 
 ## Approximation Strategy: Hub-Based Shortest Paths
 
-Even the optimized Reduced Cost A* run $V(V-1)$ times for APSP has a high complexity ($O(V \cdot E + V^2 \log V)$). For large, dense graphs (e.g., $N=500$ and $D=0.5$), this complexity leads to unacceptably long execution times.
+Even the optimized Reduced Cost A* run $V(V-1)$ times for APSP has a high complexity  O(V · E + V² log V).
+
+For large, dense graphs (e.g., $N=500$ and $D=0.5$), this complexity leads to unacceptably long execution times.
 
 ### Justification for Approximation
 
@@ -63,9 +65,7 @@ I use a technique that sacrifices path optimality for speed by introducing a sma
 
 1. **SSSP Sampling (2k runs):** Instead of running A* $V(V-1)$ times, we run A* only $2k$ times: from every node to every hub, and from every hub to every node.
 2. **Path Approximation:** For any source $s$ and destination $d$, the shortest path is approximated by the path that travels through the best intermediate hub ($h$):
-   $$
-   \text{Distance}(s, d) \approx \min_{h \in \text{Hubs}} (\text{Distance}(s, h) + \text{Distance}(h, d))
-   $$
+       Distance(s, d) ≈ min h in Hubs (Distance(s, h) + Distance(h, d))
 
 This method reduces the complexity from a factor of $V^2$ shortest path searches to a factor of $2k$ searches, yielding massive performance gains.
 
@@ -73,7 +73,7 @@ This method reduces the complexity from a factor of $V^2$ shortest path searches
 
 The results from the A* runs were validated against the **Bellman-Ford APSP** results (which serve as the ground truth).
 
-A comparison can be found in the comparison.ipynb.
+A comparison can be found in the compare.ipynb.
 
 ## Use of LLM
 
